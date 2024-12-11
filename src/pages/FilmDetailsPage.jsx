@@ -1,5 +1,4 @@
 //importo reviewsCard
-import FilmDetails from "../components/FilmDetails";
 import ReviewsCard from "../components/ReviewsCard";
 
 //creo il componente FilmDetailsPage
@@ -53,7 +52,6 @@ export default function FilmDetailsPage() {
     return (
         <>
             <div className="container">
-                <FilmDetails />
 
                 {reviews.map((review) =>
 
