@@ -8,7 +8,7 @@ export default function AppHeader() {
         <header className="bg-primary text-center p-4 shadow">
             <nav>
                 <NavLink to='/'>
-                    <strong className="text-white">My Web App</strong>
+                    <h1 className="text-white">My Web App</h1>
                 </NavLink>
             </nav>
         </header>
