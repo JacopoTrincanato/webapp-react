@@ -71,6 +71,22 @@ export default function FilmDetails() {
             text: "A bit too melodramatic for my taste.",
             created_at: "2024-11-29T10:40:13.000Z",
             updated_at: "2024-11-29T10:40:13.000Z"
+        },
+        {
+            id: 4,
+            name: "Mark",
+            vote: 2,
+            text: "too melodramatic for my taste.",
+            created_at: "2024-11-29T10:40:13.000Z",
+            updated_at: "2024-11-29T10:40:13.000Z"
+        },
+        {
+            id: 5,
+            name: "Anna",
+            vote: 1,
+            text: "I didn't like it",
+            created_at: "2024-11-29T10:40:13.000Z",
+            updated_at: "2024-11-29T10:40:13.000Z"
         }
     ];
 
