@@ -78,11 +78,11 @@ export default function FilmDetails() {
     return (
         <>
             <div className="container">
-                {reviews.map((review) => {
+                {reviews.map((review) =>
 
                     <ReviewsCard review={review} />
 
-                })}
+                )}
             </div>
 
         </>
