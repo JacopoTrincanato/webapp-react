@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import FilmDetails from "./FilmDetails";
 
 //creo il componente FilmCard
 export default function FilmCard({ movie }) {
@@ -10,7 +9,10 @@ export default function FilmCard({ movie }) {
             <div className="film card mt-4">
                 <img src={movie.image} alt="" />
                 <div className="card-body">
-                    <FilmDetails movie={movie} />
+                    <h3>{movie.title}</h3>
+                    <p><strong>Diretto da:</strong> {movie.director}</p>
+                    <p><strong>Genere:</strong> {movie.genre}</p>
+                    <p><strong>Trama:</strong> {movie.abstract}</p>
                     <Link to={`/movies/${movie.id}`} className="btn btn-dark">Visualizza il film</Link>
                 </div>
             </div>
