@@ -17,8 +17,8 @@ export default function AppFooter() {
                     <div className="col text-center">
                         <h3>CONTATTI</h3>
                         <ul className="list-unstyled">
-                            <li><strong className="mr-4">Email:</strong><a href="#">mywebapp@gmail.com</a></li>
-                            <li><strong className="mr-4">Numero di telefono:</strong><a href="#">+39 012 345 6789</a></li>
+                            <li><strong className="mr-4">Email: </strong><a href="#">mywebapp@gmail.com</a></li>
+                            <li><strong className="mr-4">Numero di telefono: </strong><a href="#">+39 012 345 6789</a></li>
                         </ul>
                     </div>
 

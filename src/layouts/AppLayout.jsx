@@ -15,7 +15,7 @@ export default function AppLayout() {
         <>
             <AppHeader />
 
-            <main>
+            <main className="py-4">
                 <Outlet />
             </main>
 
