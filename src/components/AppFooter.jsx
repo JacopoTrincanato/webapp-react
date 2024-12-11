@@ -9,25 +9,25 @@ export default function AppFooter() {
                     <div className="col text-center">
                         <h3>FAQ</h3>
                         <ul className="list-unstyled">
-                            <li><a href="#">Gestione Account</a></li>
-                            <li><a href="#">Informazioni sui Film</a></li>
+                            <li><a href="#" className="text-decoration-none text-white">Gestione Account</a></li>
+                            <li><a href="#" className="text-decoration-none text-white">Informazioni sui Film</a></li>
                         </ul>
                     </div>
 
                     <div className="col text-center">
                         <h3>CONTATTI</h3>
                         <ul className="list-unstyled">
-                            <li><strong className="mr-4">Email: </strong><a href="#">mywebapp@gmail.com</a></li>
-                            <li><strong className="mr-4">Numero di telefono: </strong><a href="#">+39 012 345 6789</a></li>
+                            <li><strong className="mr-4">Email: </strong><a href="#" className="text-decoration-none text-white">mywebapp@gmail.com</a></li>
+                            <li><strong className="mr-4">Numero di telefono: </strong><a href="#" className="text-decoration-none text-white">+39 012 345 6789</a></li>
                         </ul>
                     </div>
 
                     <div className="col">
                         <h3 className="text-center">SOCIALS</h3>
                         <div className="d-flex justify-content-center">
-                            <a href="#"><i className="m-2 bi bi-facebook"></i></a>
-                            <a href="#"><i className="m-2 bi bi-twitter"></i></a>
-                            <a href="#"><i className="m-2 bi bi-instagram"></i></a>
+                            <a href="#"><i className="m-2 bi bi-facebook text-white"></i></a>
+                            <a href="#"><i className="m-2 bi bi-twitter text-white"></i></a>
+                            <a href="#"><i className="m-2 bi bi-instagram text-white"></i></a>
                         </div>
                     </div>
 
