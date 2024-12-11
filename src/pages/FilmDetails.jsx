@@ -1,3 +1,6 @@
+//importo reviewsCard
+import ReviewsCard from "../components/ReviewsCard";
+
 //creo il componente FilmDetails
 export default function FilmDetails() {
 
@@ -74,6 +77,13 @@ export default function FilmDetails() {
     //eseguo il return
     return (
         <>
+            <div className="container">
+                {reviews.map((review) => {
+
+                    <ReviewsCard review={review} />
+
+                })}
+            </div>
 
         </>
     )
