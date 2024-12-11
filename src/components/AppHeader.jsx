@@ -5,10 +5,10 @@ export default function AppHeader() {
 
     //eseguo il return
     return (
-        <header>
+        <header className="bg-primary text-center p-4 shadow">
             <nav>
                 <NavLink to='/'>
-                    <strong>My Web App</strong>
+                    <strong className="text-white">My Web App</strong>
                 </NavLink>
             </nav>
         </header>

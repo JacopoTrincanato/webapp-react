@@ -1,3 +1,6 @@
+//importo FilmCard
+import FilmCard from "../components/FilmCard";
+
 //creo il componente Homepage
 export default function Homepage() {
 
@@ -66,15 +69,7 @@ export default function Homepage() {
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                     <div className="col">
-                        <div className="card">
-                            <img src="image" alt="" />
-                            <div className="card-body">
-                                <h3>title</h3>
-                                <p>directed by director</p>
-                                <span><strong>genre:</strong>genre</span>
-                                <p>abstract</p>
-                            </div>
-                        </div>
+                        <FilmCard />
                     </div>
                 </div>
             </div>
