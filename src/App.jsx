@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './layouts/AppLayout';
 import Homepage from './pages/Homepage';
 import FilmDetailsPage from './pages/FilmDetailsPage';
-//import NotFound from './components/NotFound';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
           <Route element={<AppLayout />}> {/*Layout */}
             <Route index element={<Homepage />} /> {/*Homepage */}
             <Route path="movies/:id" element={<FilmDetailsPage />} /> {/*Film details page */}
-            {/*<Route path="*" element={<NotFound />} />*/} {/*Not Found */}
+            {<Route path="*" element={<NotFound />} />} {/*Not Found */}
           </Route>
         </Routes>
       </BrowserRouter>
