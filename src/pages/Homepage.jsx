@@ -67,7 +67,7 @@ export default function Homepage() {
     ];*/
 
     //creo una costante per l'url
-    const url = 'https://localhost:3005/movies';
+    const url = 'http://localhost:3005/movies';
 
     //creo una costante con useState dove salvare i dati del singolo film
     const [movies, setMovies] = useState([]);
@@ -77,7 +77,7 @@ export default function Homepage() {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data.movies);
+                console.log(data);
 
                 setMovies(data.movies)
             }).catch(err => console.error(err)
