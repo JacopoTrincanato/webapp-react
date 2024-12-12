@@ -1,6 +1,8 @@
 //creo il componente ReviewsCard
 export default function ReviewsCard({ review }) {
 
+    const vote = review.vote ?? 0;
+
     //eseguo il return
     return (
         <>
@@ -13,10 +15,10 @@ export default function ReviewsCard({ review }) {
                     <div className="vote mt-3" >
 
                         {/*stampo le stelline piene */}
-                        <strong>Voto:</strong> {review.vote && Array.from({ length: review.vote }).map((index) => <span key={`filled-${index}`} className="text-warning"><i className="bi bi-star-fill"></i></span>)}
+                        <strong>Voto:</strong> {vote && Array.from({ length: vote }).map((index) => <span key={`filled-${index}`} className="text-warning"><i className="bi bi-star-fill"></i></span>)}
 
                         {/*stampo le stelline vuote*/}
-                        {review.vote && Array.from({ length: 5 - review.vote }).map((index) => <span key={`empty-${index}`} className="text-warning"><i className="bi bi-star"></i></span>)}
+                        {vote && Array.from({ length: 5 - vote }).map((index) => <span key={`empty-${index}`} className="text-warning"><i className="bi bi-star"></i></span>)}
 
                     </div>
 
