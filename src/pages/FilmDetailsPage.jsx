@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
-import NotFound from "../components/NotFound";
+//import NotFound from "../components/NotFound";
 import Banner from "../components/Banner";
 
 //creo il componente FilmDetailsPage
@@ -28,16 +28,20 @@ export default function FilmDetailsPage() {
     //effettuo la chiamata AJAX per recuperare i dati del film
     useEffect(() => {
         fetch(url)
-            .then(res => res.json())
+            .then((res) => {
+                if (res.status === 404) {
+                    navigate("*");
+                }
+                return res.json()
+            })
             .then(data => {
                 console.log(data);
 
                 setMovie(data)
 
-                navigate(<NotFound />)
-
-            }).catch(err =>
+            }).catch(err => {
                 console.error(err)
+            }
 
             )
     }, [])
