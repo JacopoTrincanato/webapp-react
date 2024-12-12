@@ -1,5 +1,6 @@
 //importo useState, useEffect e useParams
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
@@ -57,7 +58,7 @@ export default function FilmDetailsPage() {
     const url = `http://localhost:3005/movies/${id}`;
 
     //creo una costante con useState dove salvare i dati del singolo film
-    const [movie, setMovie] = useState({});
+    const [movie, setMovie] = useState(null);
 
     //effettuo la chiamata AJAX per recuperare i dati del film
     useEffect(() => {
