@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
-//import NotFound from "../components/NotFound";
+import NotFound from "../components/NotFound";
+import Banner from "../components/Banner";
 
 //creo il componente FilmDetailsPage
 export default function FilmDetailsPage() {
@@ -33,6 +34,8 @@ export default function FilmDetailsPage() {
 
                 setMovie(data)
 
+                navigate(<NotFound />)
+
             }).catch(err =>
                 console.error(err)
 
@@ -42,7 +45,11 @@ export default function FilmDetailsPage() {
     //eseguo il return
     return (
         <>
+            <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
+
             <div className="container">
+
+                <h2 className="mb-4">Recensioni:</h2>
 
                 {movie && movie?.reviews.map((review) =>
 
