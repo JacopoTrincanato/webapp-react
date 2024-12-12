@@ -1,3 +1,6 @@
+//importo useState e useEffect
+import { useState, useEffect } from "react";
+
 //importo FilmCard
 import FilmCard from "../components/FilmCard";
 
@@ -5,7 +8,7 @@ import FilmCard from "../components/FilmCard";
 export default function Homepage() {
 
     //creo una costante dove salvare la lista dei film
-    const movies = [
+    /*const movies = [
         {
             id: 1,
             title: "Inception",
@@ -61,7 +64,25 @@ export default function Homepage() {
             created_at: "2024-11-29T10:40:13.000Z",
             updated_at: "2024-11-29T10:40:13.000Z"
         }
-    ];
+    ];*/
+
+    //creo una costante per l'url
+    const url = 'https://localhost:3005/movies';
+
+    //creo una costante con useState dove salvare i dati del singolo film
+    const [movies, setMovies] = useState([]);
+
+    //effettuo la chiamata AJAX per recuperare i dati del film
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.movies);
+
+                setMovies(data.movies)
+            }).catch(err => console.error(err)
+            )
+    }, [])
 
     //eseguo il return
     return (
@@ -69,7 +90,7 @@ export default function Homepage() {
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-                    {movies.map((movie) =>
+                    {movies && movies.map((movie) =>
                         <div className="col" key={movie.id}>
                             <FilmCard movie={movie} />
                         </div>
