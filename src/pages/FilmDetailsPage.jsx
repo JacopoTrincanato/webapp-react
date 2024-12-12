@@ -1,11 +1,16 @@
+//importo useState, useEffect e useParams
+import { useState, useEffect, useParams } from "react";
+
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
 
 //creo il componente FilmDetailsPage
 export default function FilmDetailsPage() {
 
+    const [id] = useParams()
+
     //creo una costante dove salvare le reviews
-    const reviews = [
+    /*const reviews = [
         {
             id: 1,
             name: "Grace",
@@ -46,14 +51,31 @@ export default function FilmDetailsPage() {
             created_at: "2024-11-29T10:40:13.000Z",
             updated_at: "2024-11-29T10:40:13.000Z"
         }
-    ];
+    ];*/
+
+    //creo una costante per l'url
+    const url = 'https://localhost:3005';
+
+    //creo una costante con useState dove salvare i dati del singolo film
+    const [movie, setMovie] = useState({});
+
+    //effettuo la chiamata AJAX per recuperare i dati del film
+    useEffect(() => {
+        fetch(`${url}/movies/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                setMovie(data)
+            })
+    }, [])
 
     //eseguo il return
     return (
         <>
             <div className="container">
 
-                {reviews.map((review) =>
+                {movie && movie.reviews.map((review) =>
 
                     <ReviewsCard review={review} />
 
