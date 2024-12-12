@@ -3,8 +3,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //importo AppLayout
 import AppLayout from './layouts/AppLayout';
+
+//importo Homepage
 import Homepage from './pages/Homepage';
+
+//importo FilmDetailsPage
 import FilmDetailsPage from './pages/FilmDetailsPage';
+
+//importo NotFound
 import NotFound from './components/NotFound';
 
 function App() {

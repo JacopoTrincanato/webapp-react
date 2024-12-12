@@ -13,10 +13,10 @@ export default function ReviewsCard({ review }) {
                     <div className="vote mt-3" >
 
                         {/*stampo le stelline piene */}
-                        <strong>Voto:</strong> {review.vote && Array.from({ length: review.vote }).map((i) => <span key={i} className="text-warning"><i className="bi bi-star-fill"></i></span>)}
+                        <strong>Voto:</strong> {review.vote && Array.from({ length: review.vote }).map((index) => <span key={`filled-${index}`} className="text-warning"><i className="bi bi-star-fill"></i></span>)}
 
                         {/*stampo le stelline vuote*/}
-                        {review.vote && Array.from({ length: 5 - review.vote }).map((i) => <span key={i} className="text-warning"><i className="bi bi-star"></i></span>)}
+                        {review.vote && Array.from({ length: 5 - review.vote }).map((index) => <span key={`empty-${index}`} className="text-warning"><i className="bi bi-star"></i></span>)}
 
                     </div>
 
