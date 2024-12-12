@@ -2,14 +2,21 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+//importo useNavigate
+import { useNavigate } from "react-router-dom";
+
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
+//import NotFound from "../components/NotFound";
 
 //creo il componente FilmDetailsPage
 export default function FilmDetailsPage() {
 
     //creo una costante dove salvare l'id del singolo film
     const { id } = useParams()
+
+    //creo una costante dove utilizzare useNavigate
+    const navigate = useNavigate();
 
     //creo una costante per l'url
     const url = `http://localhost:3005/movies/${id}`;
@@ -25,7 +32,11 @@ export default function FilmDetailsPage() {
                 console.log(data);
 
                 setMovie(data)
-            })
+
+            }).catch(err =>
+                console.error(err)
+
+            )
     }, [])
 
     //eseguo il return
@@ -35,7 +46,7 @@ export default function FilmDetailsPage() {
 
                 {movie && movie?.reviews.map((review) =>
 
-                    <ReviewsCard review={review} />
+                    <ReviewsCard key={review.id} review={review} />
 
                 )}
             </div>
