@@ -7,8 +7,12 @@ import { useNavigate } from "react-router-dom";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
-//import NotFound from "../components/NotFound";
+
+//importo il Banner
 import Banner from "../components/Banner";
+
+//importo ReviewForm
+import ReviewForm from "../components/ReviewForm";
 
 //creo il componente FilmDetailsPage
 export default function FilmDetailsPage() {
@@ -50,6 +54,8 @@ export default function FilmDetailsPage() {
     return (
         <>
             <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
+
+            <ReviewForm />
 
             <div className="container">
 
