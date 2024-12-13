@@ -31,8 +31,8 @@ export default function ReviewForm({ movie_id }) {
         //effettuo una chiamata ajax per aggiungere una nuova recensione
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify(formData),
-            headers: { "Content type": "application.json" }
+            body: JSON.stringify(newReview),
+            headers: { "Content-Type": "application.json" }
         }).then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -50,7 +50,7 @@ export default function ReviewForm({ movie_id }) {
                             {/*input per lo username */}
                             <div className="mb-3">
                                 <label htmlFor="username">Username</label>
-                                <input type="text" placeholder="Inserisci lo username" className="form-control" value={formData.username} onChange={handleFormData} />
+                                <input type="text" name="username" placeholder="Inserisci lo username" className="form-control" value={formData.username} onChange={handleFormData} />
                             </div>
 
                             {/*input per la recensione */}
