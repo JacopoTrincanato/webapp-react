@@ -4,15 +4,19 @@ import { useState } from "react";
 //creo il componente ReviewForm
 export default function ReviewForm({ movie_id }) {
 
+    const [rating, setRating] = useState(0)
+
     //creo un oggetto con le proprietà delle review
     const newReview = {
         username: '',
         review: '',
-        vote: 0
+        vote: rating
     };
 
     //creo una costante dove salvare i dati del form
     const [formData, setFormData] = useState(newReview);
+
+
 
     //creo la funzione handleFormData dove aggiornare i dati del form
     function handleFormData(e) {
@@ -32,7 +36,7 @@ export default function ReviewForm({ movie_id }) {
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(newReview),
-            headers: { "Content-Type": "application.json" }
+            headers: { "Content-Type": "application/json" }
         }).then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -55,13 +59,13 @@ export default function ReviewForm({ movie_id }) {
 
                             {/*input per la recensione */}
                             <div className="mb3">
-                                <label htmlFor="review">Review</label>
+                                <label htmlFor="review">review</label>
                                 <textarea name="review" id="review" placeholder="Inserisci la recensione" className="form-control" value={formData.review} onChange={handleFormData}></textarea>
                             </div>
 
                             {/*imput per il voto*/}
                             <div className="rating mb-3 text-warning mt-3">
-                                {[1, 2, 3, 4, 5].map(n => <i key={n} className={`bi bi-star ${n <= formData.vote ? '-fill' : ''} `} onClick={setFormData}></i>)}
+                                {[1, 2, 3, 4, 5].map(number => <i key={number} className={`bi bi-star${number <= rating ? '-fill' : ''} `} onMouseOver={() => setRating(number)}></i>)}
                             </div>
 
                             <button type="submit" className="btn btn-dark">Invia</button>
