@@ -1,8 +1,8 @@
-//importo useState e useEffect
-import { useState, useEffect } from "react";
+//importo useState
+import { useState } from "react";
 
 //creo il componente ReviewForm
-export default function ReviewForm() {
+export default function ReviewForm({ movie_id }) {
 
     //creo un oggetto con le proprietà delle review
     const newReview = {
@@ -24,6 +24,19 @@ export default function ReviewForm() {
 
     function handleFormSubmit(e) {
         e.preventDefault()
+
+        //creo una costante per l'url
+        const url = `http://localhost:3005/movies/${movie_id}/review`;
+
+        //effettuo una chiamata ajax per aggiungere una nuova recensione
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { "Content type": "application.json" }
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
 
     //eseguo il return

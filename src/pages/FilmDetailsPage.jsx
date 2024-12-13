@@ -55,7 +55,7 @@ export default function FilmDetailsPage() {
         <>
             <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
 
-            <ReviewForm />
+            <ReviewForm movie_id={id} />
 
             <div className="container">
 
