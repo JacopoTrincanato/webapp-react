@@ -8,15 +8,13 @@ export default function ReviewForm({ movie_id }) {
 
     //creo un oggetto con le proprietà delle review
     const newReview = {
-        username: '',
-        review: '',
+        name: '',
+        text: '',
         vote: rating
     };
 
     //creo una costante dove salvare i dati del form
     const [formData, setFormData] = useState(newReview);
-
-
 
     //creo la funzione handleFormData dove aggiornare i dati del form
     function handleFormData(e) {
@@ -35,7 +33,7 @@ export default function ReviewForm({ movie_id }) {
         //effettuo una chiamata ajax per aggiungere una nuova recensione
         fetch(url, {
             method: 'POST',
-            body: JSON.stringify(newReview),
+            body: JSON.stringify({ ...formData, vote: rating }),
             headers: { "Content-Type": "application/json" }
         }).then(res => res.json())
             .then(data => {
@@ -53,14 +51,14 @@ export default function ReviewForm({ movie_id }) {
 
                             {/*input per lo username */}
                             <div className="mb-3">
-                                <label htmlFor="username">Username</label>
-                                <input type="text" name="username" placeholder="Inserisci lo username" className="form-control" value={formData.username} onChange={handleFormData} />
+                                <label htmlFor="name" className="mb-2">Username</label>
+                                <input type="text" name="name" placeholder="Inserisci lo username" className="form-control" value={formData.name} onChange={handleFormData} />
                             </div>
 
                             {/*input per la recensione */}
                             <div className="mb3">
-                                <label htmlFor="review">review</label>
-                                <textarea name="review" id="review" placeholder="Inserisci la recensione" className="form-control" value={formData.review} onChange={handleFormData}></textarea>
+                                <label htmlFor="text" className="mb-2">Review</label>
+                                <textarea name="text" id="text" placeholder="Inserisci la recensione" className="form-control" value={formData.text} onChange={handleFormData}></textarea>
                             </div>
 
                             {/*imput per il voto*/}

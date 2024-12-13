@@ -8,8 +8,6 @@ export default function ReviewsCard({ review }) {
 
                 <div className="card-body">
 
-                    <div>{review.updated_at}</div>
-
                     <span><strong>Nome:</strong> {review.name}</span>
 
                     <div className="vote mt-3" >
