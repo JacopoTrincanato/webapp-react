@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 //importo FilmCard
 import FilmCard from "../components/FilmCard";
 
+//importo Loader
+import Loader from "../components/Loader";
+
 //creo il componente Homepage
 export default function Homepage() {
 
@@ -28,6 +31,9 @@ export default function Homepage() {
     //eseguo il return
     return (
         <>
+
+            <Loader />
+
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 

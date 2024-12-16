@@ -1,9 +1,8 @@
-//importo useState, useEffect e useParams
+//importo useState e useEffect 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 
-//importo useNavigate
-import { useNavigate } from "react-router-dom";
+//importo useNavigate e useParams
+import { useNavigate, useParams } from "react-router-dom";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
@@ -13,6 +12,9 @@ import Banner from "../components/Banner";
 
 //importo ReviewForm
 import ReviewForm from "../components/ReviewForm";
+
+//importo Loader
+import Loader from "../components/Loader";
 
 //creo il componente FilmDetailsPage
 export default function FilmDetailsPage() {
@@ -53,6 +55,9 @@ export default function FilmDetailsPage() {
     //eseguo il return
     return (
         <>
+
+            <Loader />
+
             <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
 
             <ReviewForm movie_id={id} />

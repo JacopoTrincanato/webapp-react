@@ -4,6 +4,7 @@ import { useState } from "react";
 //creo il componente ReviewForm
 export default function ReviewForm({ movie_id }) {
 
+    //creo una costante dove con il rating e la funzione per aggiornarlo
     const [rating, setRating] = useState(0)
 
     //creo un oggetto con le proprietà delle review
