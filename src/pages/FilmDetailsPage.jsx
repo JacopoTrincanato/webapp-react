@@ -26,7 +26,7 @@ export default function FilmDetailsPage() {
     const { id } = useParams();
 
     //richiamo i valori dal GlobalContext
-    const { loading, setLoading } = useContext(GlobalContext)
+    const { loading, setLoading } = useContext(GlobalContext);
 
     //creo una costante dove utilizzare useNavigate
     const navigate = useNavigate();
@@ -69,9 +69,9 @@ export default function FilmDetailsPage() {
     return (
         <>
 
-            {loading ? <Loader /> :
+            {loading ? <Loader /> : (
 
-                (<>
+                <>
                     <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
 
                     <ReviewForm movie_id={id} />
@@ -86,7 +86,8 @@ export default function FilmDetailsPage() {
 
                         )}
                     </div>
-                </>)}
+                </>
+            )};
 
         </>
     )
