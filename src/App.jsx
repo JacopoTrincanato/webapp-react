@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //importo useState
-//import { useState } from 'react';
+import { useState } from 'react';
 
 //importo AppLayout
 import AppLayout from './layouts/AppLayout';
@@ -21,11 +21,18 @@ import NotFound from './components/NotFound';
 
 function App() {
 
+  //creo una constante per il loading 
+  const [loading, setLoading] = useState(false);
 
+  //creo una costante coi valori da passare al Provider
+  const values = {
+    loading,
+    setLoading
+  };
 
   return (
     <>
-      <GlobalContext.Provider>
+      <GlobalContext.Provider value={values}>
         <BrowserRouter>
           <Routes>
             <Route element={<AppLayout />}> {/*Layout */}

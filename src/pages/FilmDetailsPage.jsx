@@ -1,8 +1,11 @@
-//importo useState e useEffect 
-import { useState, useEffect } from "react";
+//importo useState, useEffect e useContext 
+import { useState, useEffect, useContext } from "react";
 
 //importo useNavigate e useParams
 import { useNavigate, useParams } from "react-router-dom";
+
+//importo GlobalContext
+import GlobalContext from "../contexts/GlobalContext";
 
 //importo reviewsCard
 import ReviewsCard from "../components/ReviewsCard";
@@ -20,7 +23,10 @@ import Loader from "../components/Loader";
 export default function FilmDetailsPage() {
 
     //creo una costante dove salvare l'id del singolo film
-    const { id } = useParams()
+    const { id } = useParams();
+
+    //richiamo i valori dal GlobalContext
+    const { loading, setLoading } = useContext(GlobalContext)
 
     //creo una costante dove utilizzare useNavigate
     const navigate = useNavigate();
@@ -33,6 +39,10 @@ export default function FilmDetailsPage() {
 
     //effettuo la chiamata AJAX per recuperare i dati del film
     useEffect(() => {
+
+        //imposto setLoading su true
+        setLoading(true);
+
         fetch(url)
             .then((res) => {
                 if (res.status === 404) {
@@ -43,7 +53,10 @@ export default function FilmDetailsPage() {
             .then(data => {
                 console.log(data);
 
-                setMovie(data)
+                setMovie(data);
+
+                //reimposto il valore di setLoading su false
+                setLoading(false);
 
             }).catch(err => {
                 console.error(err)
@@ -56,22 +69,24 @@ export default function FilmDetailsPage() {
     return (
         <>
 
-            <Loader />
+            {loading ? <Loader /> :
 
-            <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
+                (<>
+                    <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
 
-            <ReviewForm movie_id={id} />
+                    <ReviewForm movie_id={id} />
 
-            <div className="container">
+                    <div className="container">
 
-                <h2 className="mb-4">Recensioni:</h2>
+                        <h2 className="mb-4">Recensioni:</h2>
 
-                {movie && movie?.reviews.map((review) =>
+                        {movie && movie?.reviews.map((review) =>
 
-                    <ReviewsCard key={review.id} review={review} />
+                            <ReviewsCard key={review.id} review={review} />
 
-                )}
-            </div>
+                        )}
+                    </div>
+                </>)}
 
         </>
     )
