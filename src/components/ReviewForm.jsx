@@ -32,8 +32,12 @@ export default function ReviewForm({ movie_id, success, handleSuccess }) {
         e.preventDefault()
 
         //validazione dati
-        if (formData.name.length < 2 || formData.text.length < 3 || formData.vote === 0) {
-            setError('Compila tutti i campi!!');
+        if (formData.name.length < 2) {
+            setError('Il nome deve avere almeno 2 caratteri!');
+        } else if (formData.text.length < 3) {
+            setError('La recensione deve avere almeno 3 caratteri!');
+        } else if (rating === 0) {
+            setError('Il voto deve essere maggiore di 0');
         } else {
 
             formData
@@ -49,7 +53,10 @@ export default function ReviewForm({ movie_id, success, handleSuccess }) {
             }).then(res => res.json())
                 .then(data => {
                     console.log(data);
-                })
+                }).catch(err =>
+                    console.error(err)
+
+                )
         };
 
 
