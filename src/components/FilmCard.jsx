@@ -8,7 +8,6 @@ export default function FilmCard({ movie }) {
     return (
         <>
             <div className="film card mt-4">
-                <img src={movie.image} alt="" />
                 <div className="card-body">
                     <h3>{movie.title}</h3>
                     <p><strong>Diretto da:</strong> {movie.director}</p>
