@@ -1,5 +1,8 @@
-//importo useState e useEffect
-import { useState, useEffect } from "react";
+//importo useState, useEffect e useContext
+import { useState, useEffect, useContext } from "react";
+
+//importo il GlobalContext
+import GlobalContext from "../contexts/GlobalContext";
 
 //importo FilmCard
 import FilmCard from "../components/FilmCard";
