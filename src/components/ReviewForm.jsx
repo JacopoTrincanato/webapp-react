@@ -53,7 +53,7 @@ export default function ReviewForm({ movie_id }) {
                             {/*input per lo username */}
                             <div className="mb-3">
                                 <label htmlFor="name" className="mb-2">Username</label>
-                                <input type="text" name="name" placeholder="Inserisci lo username" className="form-control" value={formData.name} onChange={handleFormData} />
+                                <input type="text" name="name" id="name" placeholder="Inserisci lo username" className="form-control" value={formData.name} onChange={handleFormData} />
                             </div>
 
                             {/*input per la recensione */}

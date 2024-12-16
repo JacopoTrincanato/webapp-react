@@ -31,7 +31,6 @@ export default function Homepage() {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
 
                 //aggiorno il valore di movies
                 setMovies(data.movies);
