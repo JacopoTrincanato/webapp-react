@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 //creo il componente ReviewForm
-export default function ReviewForm({ movie_id }) {
+export default function ReviewForm({ movie_id, success, handleSuccess }) {
 
     //creo una costante dove con il rating e la funzione per aggiornarlo
     const [rating, setRating] = useState(0)
@@ -17,6 +17,9 @@ export default function ReviewForm({ movie_id }) {
     //creo una costante dove salvare i dati del form
     const [formData, setFormData] = useState(newReview);
 
+    //creo una variabile per gestire il messaggio di errore
+    const [error, setError] = useState(null)
+
     //creo la funzione handleFormData dove aggiornare i dati del form
     function handleFormData(e) {
         setFormData((formData) => ({
@@ -28,19 +31,29 @@ export default function ReviewForm({ movie_id }) {
     function handleFormSubmit(e) {
         e.preventDefault()
 
-        //creo una costante per l'url
-        const url = `http://localhost:3005/movies/${movie_id}/review`;
+        //validazione dati
+        if (formData.name.length < 2 || formData.text.length < 3 || formData.vote === 0) {
+            setError('Compila tutti i campi!!');
+        } else {
 
-        //effettuo una chiamata ajax per aggiungere una nuova recensione
-        fetch(url, {
-            method: 'POST',
-            body: JSON.stringify({ ...formData, vote: rating }),
-            headers: { "Content-Type": "application/json" }
-        }).then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-    }
+            formData
+
+            //creo una costante per l'url
+            const url = `http://localhost:3005/movies/${movie_id}/review`;
+
+            //effettuo una chiamata ajax per aggiungere una nuova recensione
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({ ...formData, vote: rating }),
+                headers: { "Content-Type": "application/json" }
+            }).then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        };
+
+
+    };
 
     //eseguo il return
     return (
@@ -68,6 +81,9 @@ export default function ReviewForm({ movie_id }) {
                             </div>
 
                             <button type="submit" className="btn btn-dark">Invia</button>
+
+                            {/*se error esiste, allora visualizzalo in pagina*/}
+                            {error && <span className="text-danger mx-2">{error}</span>}
                         </form>
                     </div>
                 </div>

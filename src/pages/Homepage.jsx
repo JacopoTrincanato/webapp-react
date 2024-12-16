@@ -45,6 +45,8 @@ export default function Homepage() {
     //eseguo il return
     return (
         <>
+
+            {/*se loading esiste, allora eseguo il contenuto del return */}
             {loading ? <Loader /> : (
                 <>
                     <div className="container">

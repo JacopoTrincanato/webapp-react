@@ -37,6 +37,8 @@ export default function FilmDetailsPage() {
     //creo una costante con useState dove salvare i dati del singolo film
     const [movie, setMovie] = useState(null);
 
+    const [success, setSuccess] = useState(null)
+
     //effettuo la chiamata AJAX per recuperare i dati del film
     useEffect(() => {
 
@@ -63,18 +65,19 @@ export default function FilmDetailsPage() {
             }
 
             )
-    }, [])
+    }, [success])
 
     //eseguo il return
     return (
         <>
 
+            {/*se loading esiste, allora eseguo il contenuto del return */}
             {loading ? <Loader /> : (
 
                 <>
                     <Banner title={movie?.title} subtitle={`Diretto da ${movie?.director}`} leadtext={movie?.abstract} />
 
-                    <ReviewForm movie_id={id} />
+                    <ReviewForm movie_id={id} success={success} handleSuccess={setSuccess} />
 
                     <div className="container">
 
